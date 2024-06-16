@@ -11,4 +11,9 @@ public class GlobalException {
     public ResponseEntity<String> handelRecordNotFoundException(RecordNotFoundException recordNotFoundException){
         return new ResponseEntity<>(recordNotFoundException.getMessage(), HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler
+    public ResponseEntity<String> handelDuplicateRecord(DuplicateRecordException exception){
+        return new ResponseEntity<>(exception.getMessage(),HttpStatus.BAD_REQUEST);
+    }
 }
